@@ -19,6 +19,11 @@ export default function Login() {
     }
   };
 
+  const deslogar = () => {
+    localStorage.removeItem('token');
+    setUserName('');
+  } 
+
   return (
     <div className="max-w-md mx-auto p-6 bg-[#f5f5f5] rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
@@ -26,6 +31,13 @@ export default function Login() {
       {userName ? (
         <div className="text-green-700 text-center font-semibold">
           Bem vindo, {userName}!!
+          <button
+            type="button"
+            onClick={deslogar}
+            className="w-full bg-[#742525] text-white py-2 mt-3 rounded hover:bg-[#742525d9]"
+          >
+            Deslogar
+          </button>
         </div>
       ) : (
         <div className="space-y-4">
