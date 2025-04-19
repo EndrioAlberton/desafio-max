@@ -8,6 +8,14 @@ interface AuthResponse {
   userName?: string;
 }
 
+interface AxiosErrorResponse {
+  response?: {
+    data?: {
+      message: string;
+    };
+  };
+}
+
 export async function authLogin(email: string, password: string): Promise<AuthResponse> {
   try {
     const response = await axios.post("https://login-api.mxqservices.com.br/users/login", {
@@ -23,10 +31,12 @@ export async function authLogin(email: string, password: string): Promise<AuthRe
       token,
       userName: user.name,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const axiosError = error as AxiosErrorResponse;
+
     return {
       success: false,
-      message: error.response?.data?.message || "Erro ao tentar logar.",
+      message: axiosError.response?.data?.message || "Erro ao tentar logar.",
     };
   }
 }
