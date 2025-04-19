@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Desafio Técnico
 
-## Getting Started
+Este projeto foi desenvolvido como parte de um desafio técnico. Abaixo, você encontrará informações sobre a estrutura do projeto, decisões tomadas e como executar a aplicação. O projeto pode ser acessado em: [https://desafio-max.vercel.app/](https://desafio-max.vercel.app/),
 
-First, run the development server:
+## Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js**: Escolhido por ser um requisito da vaga e por meu interesse em aprofundar conhecimentos na tecnologia, considerando minha experiência prévia com React e TypeScript.
+- **Tailwind CSS**: Utilizado para estilização, aproveitando a oportunidade para aprender esta ferramenta.
+- **Axios**: Utilizado para realizar requisições HTTP.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura do Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A estrutura do projeto foi organizada com base na [documentação oficial do Next.js](https://nextjs.org/docs/app/getting-started/project-structure). Todos os exercícios foram mantidos dentro de um único projeto, permitindo a navegação entre eles.
 
-## Learn More
+## Commits e Decisões
 
-To learn more about Next.js, take a look at the following resources:
+### Commit 1: Configuração Inicial
+- Configuração básica do projeto com Next.js e Tailwind CSS.
+- Organização inicial dos arquivos e pastas.
+- Tempo estimado: **2 horas**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Commit 2: Exercício 1 – Operações Matemáticas
+- Implementação de um programa que realiza soma, subtração, multiplicação e divisão de dois números inteiros fornecidos pelo usuário.
+- Utilização de `useState` para manipulação dos inputs.
+- Validação dos dados inseridos com alertas para valores inválidos.
+- Utilização de `toFixed` para limitar casas decimais, conforme [Stack Overflow](https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary).
+- Tempo estimado: **30 minutos**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Commit 3: Exercício 2 – Verificação de Palíndromo
+- Implementação de uma solução que remove espaços e pontuações com `replace`, converte para minúsculas, inverte a string e compara com a string inicial limpa.
+- Validação dos dados para garantir que sejam palavras ou frases válidas.
+- Referência: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace).
 
-## Deploy on Vercel
+### Commit 4: Interface de Login
+- Separação da interface de login em um commit específico.
+- Interface semelhante à do primeiro exercício.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Commit 5: Lógica de Autenticação
+- Criação de um serviço para autenticação utilizando a biblioteca Axios.
+- Implementação de um botão de logout para facilitar os testes.
+- Conexão do projeto à Vercel, com resolução de problemas relacionados ao tipo `any`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Como Executar a Aplicação
+
+1. Clone o repositório:
+    ```bash
+    git clone <https://github.com/EndrioAlberton/desafio-max>
+    cd <desafio-max>
+    ```
+
+2. Instale as dependências:
+    ```bash
+    npm install
+    ```
+
+3. Inicie o servidor de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
+
+4. Acesse a aplicação em [http://localhost:3000](http://localhost:3000).
