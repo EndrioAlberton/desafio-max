@@ -20,26 +20,45 @@ A estrutura do projeto foi organizada com base na [documentação oficial do Nex
 - Organização inicial dos arquivos e pastas.
 - Tempo estimado: **2 horas**.
 
-### Commit 2: Exercício 1 – Operações Matemáticas
+### Exercício 1 – Operações Matemáticas
 - Implementação de um programa que realiza soma, subtração, multiplicação e divisão de dois números inteiros fornecidos pelo usuário.
 - Utilização de `useState` para manipulação dos inputs.
 - Validação dos dados inseridos com alertas para valores inválidos.
-- Utilização de `toFixed` para limitar casas decimais, conforme [Stack Overflow](https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary).
+- Utilização de `toFixed` para limitar casas decimais, conforme [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed).
 - Tempo estimado: **30 minutos**.
 
-### Commit 3: Exercício 2 – Verificação de Palíndromo
+### Exercício 2 – Verificação de Palíndromo
 - Implementação de uma solução que remove espaços e pontuações com `replace`, converte para minúsculas, inverte a string e compara com a string inicial limpa.
 - Validação dos dados para garantir que sejam palavras ou frases válidas.
 - Referência: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace).
+- Tempo estimado: **40 minutos**.
 
-### Commit 4: Interface de Login
+### Interface de Login
 - Separação da interface de login em um commit específico.
 - Interface semelhante à do primeiro exercício.
+- Tempo estimado: **20 minutos**.
 
-### Commit 5: Lógica de Autenticação
-- Criação de um serviço para autenticação utilizando a biblioteca Axios.
+### Lógica de Autenticação do login
+- Criação de um `service` para autenticação utilizando a biblioteca Axios.
+- Alertas para exibir os erros retornados pela API.
 - Implementação de um botão de logout para facilitar os testes.
 - Conexão do projeto à Vercel, com resolução de problemas relacionados ao tipo `any`.
+- Tempo estimado: **50 minutos**.
+
+### Registro de Usuário
+
+- Implementada a função `registrar`, que chama o serviço `register`, armazena o token no `localStorage` e atualiza o estado `registeredUser` em caso de sucesso. Erros são exibidos com `alert()`.
+- Adicionado um botão "Voltar para Login" com `Link` para `/login` e um botão "Ir para Login" exibido após o registro bem-sucedido.
+- Utilizando Axios para enviar uma requisição `POST`.
+- Tempo estimado: **1 hora**.
+
+
+### Listagem de Usuários
+
+- Enfrentei dificuldades iniciais ao manipular o token de autenticação, mas após realizar alguns testes, consegui ajustar o código corretamente.
+- Criação de um `service` para listar os usuários, utilizando o token de autenticação no cabeçalho da requisição.
+- Implementação de um modal para exibir os dados dos usuários, pode ser acessado após o login.
+- Tempo estimado: **1 hora e 30 minutos**.
 
 ## Como Executar a Aplicação
 
