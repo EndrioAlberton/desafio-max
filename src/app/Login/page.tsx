@@ -37,8 +37,12 @@ export default function Login() {
       const usersList = await listUsers();
       setUsers(usersList);
       setShowUsersModal(true);
-    } catch (error: any) {
-      alert(error.message);
+    } catch (error: unknown) { 
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("An unknown error occurred.");
+      }
     }
   };
 
@@ -95,7 +99,7 @@ export default function Login() {
           <div className="bg-[#f5f5f5] p-6 rounded-lg max-w-lg w-full max-h-[80vh] overflow-y-auto shadow-lg">
             <h2 className="text-xl font-bold mb-4 text-center">Usuários Cadastrados</h2>
             <ul className="space-y-2">
-              {users.map((user: any) => (
+              {users.map((user: User) => (
                 <li key={user.id} className="border-b pb-2">
                   <p><strong>Nome:</strong> {user.name}</p>
                   <p><strong>Email:</strong> {user.email}</p>
