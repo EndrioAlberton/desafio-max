@@ -1,6 +1,7 @@
 'use client';
 import { authLogin } from "@/service/authLogin";
 import { listUsers } from "@/service/listUsers";
+import { changePassword } from "@/service/changePassword"; // Import the changePassword service
 import { useState } from "react";
 
 type User = {
@@ -15,6 +16,9 @@ export default function Login() {
   const [userName, setUserName] = useState('');
   const [showUsersModal, setShowUsersModal] = useState(false);
   const [users, setUsers] = useState<User[]>([]);
+  const [showChangePassword, setShowChangePassword] = useState(false); // State for password change form
+  const [oldPassword, setOldPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
 
   const logar = async () => {
     const result = await authLogin(email, password);
@@ -37,12 +41,22 @@ export default function Login() {
       const usersList = await listUsers();
       setUsers(usersList);
       setShowUsersModal(true);
-    } catch (error: unknown) { 
+    } catch (error: unknown) {
       if (error instanceof Error) {
         alert(error.message);
       } else {
         alert("An unknown error occurred.");
       }
+    }
+  };
+
+  const handleChangePassword = async () => {
+    const result = await changePassword(oldPassword, newPassword);
+    alert(result.message);
+    if (result.success) {
+      setOldPassword('');
+      setNewPassword('');
+      setShowChangePassword(false);
     }
   };
 
@@ -60,6 +74,38 @@ export default function Login() {
           >
             Listar Usuários
           </button>
+          <button
+            type="button"
+            onClick={() => setShowChangePassword(!showChangePassword)}
+            className="w-full bg-[#3b5998] text-white py-2 mt-3 rounded hover:bg-[#2a4373]"
+          >
+            {showChangePassword ? 'Cancelar' : 'Alterar Senha'}
+          </button>
+          {showChangePassword && (
+            <div className="space-y-4 mt-4">
+              <input
+                type="password"
+                placeholder="Senha atual"
+                className="w-full p-2 border border-gray-300 rounded"
+                value={oldPassword}
+                onChange={(e) => setOldPassword(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Nova senha"
+                className="w-full p-2 border border-gray-300 rounded"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+              />
+              <button
+                type="button"
+                onClick={handleChangePassword}
+                className="w-full bg-[#4e342e] text-white py-2 rounded hover:bg-[#5d4037]"
+              >
+                Confirmar Alteração
+              </button>
+            </div>
+          )}
           <button
             type="button"
             onClick={deslogar}
