@@ -4,10 +4,10 @@ Este projeto foi desenvolvido como parte de um desafio técnico. Abaixo, você e
 
 ## Tecnologias Utilizadas
 
-- **Next.js**: Escolhido por ser um requisito da vaga e por meu interesse em aprofundar conhecimentos na tecnologia, considerando minha experiência prévia com React e TypeScript.
-- **Tailwind CSS**: Utilizado para estilização, aproveitando a oportunidade para aprender esta ferramenta.
+- **TypeScript**: Já possuía conhecimento prévio na linguagem, adquirido durante o desenvolvimento de outros sistemas em contextos acadêmicos.
+- **Next.js**: Escolhido por ser um requisito da vaga e por representar o próximo passo natural na minha evolução como desenvolvedor front-end, dado meu conhecimento prévio em React e TypeScript.
+- **Tailwind**: Utilizado para estilização, aproveitando a oportunidade para aprender esta ferramenta.
 - **Axios**: Utilizado para realizar requisições HTTP.
-
 
 ## Estrutura do Projeto
 
@@ -56,9 +56,18 @@ A estrutura do projeto foi organizada com base na [documentação oficial do Nex
 ### Listagem de Usuários
 
 - Enfrentei dificuldades iniciais ao manipular o token de autenticação, mas após realizar alguns testes, consegui ajustar o código corretamente.
-- Criação de um `service` para listar os usuários, utilizando o token de autenticação no cabeçalho da requisição.
+- Criação de um `service` para listar os usuários, utilizando o `token` de autenticação no `header` da requisição.
 - Implementação de um modal para exibir os dados dos usuários, pode ser acessado após o login.
 - Tempo estimado: **1 hora e 30 minutos**.
+
+### Alterar Senha
+
+- Durante os testes, identifiquei um problema no endpoint, que retornava um erro 404. Após contato com a equipe, ajustei o método HTTP de `POST` para `PATCH`, que era o correto.
+- Criação de um `service` chamado `changePassword` para realizar a requisição ao endpoint de alteração de senha. O serviço utiliza Axios para enviar os dados necessários, incluindo o `token` de autenticação no `header`.
+- Tratamento de erros para exibir mensagens claras ao usuário em caso de falha na requisição.
+- Como a troca de senha exige autenticação prévia, alterei a interface para incluir os campos "Senha Antiga" e "Nova Senha" na tela exibida após o login.
+- Validação dos campos para garantir que a senha antiga e a nova sejam fornecidas corretamente.
+- Tempo estimado: **1 hora**.
 
 ## Como Executar a Aplicação
 
